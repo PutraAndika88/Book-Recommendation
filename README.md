@@ -260,7 +260,7 @@ Kesimpulan:
 
 Berikut adalah tahapan-tahapan yang dilakukan:
 
-1. Mengatasi *missing value*: Melakukan penanganan terhadap nilai yang hilang pada dataset, seperti menghapus baris atau mengisi nilai yang hilang dengan metode tertentu, seperti *mean* atau median.
+1. Mengatasi *missing value*: Melakukan penanganan terhadap nilai yang hilang pada dataset dengan melakukan metode *dropna* yaitu menghilangkan seluruh baris yang terkontaminasi oleh unsur *missing value*. Hal ini dilakukan karena data memiliki *rows* yang sangat banyak sehingga melakukan *dropna* tidak menghilangkan sebagian besar dataset yang digunakan.
 2. Mengambil kolom yang diperlukan dan merubah nama kolom: Memilih kolom-kolom yang relevan untuk analisis dan memberikan nama baru jika diperlukan.
 3. *Exclude* data *rating* yang ingin dihapus dari dataset: Menghapus data dengan rating tertentu yang ingin dikecualikan dari analisis.
 4. *Reset* indeks *dataframe* untuk menghindari *error*: Mereset indeks *dataframe* setelah melakukan operasi penghapusan atau pemrosesan data agar indeks kembali terurut secara berurutan.
@@ -467,35 +467,47 @@ Interpretasi:
 + Nilai RMSE *train* dan *test* berfluktuasi selama pelatihan.
 + Nilai RMSE *train* umumnya lebih rendah daripada nilai RMSE *test*. Hal ini menunjukkan bahwa model beradaptasi dengan data *training*, tetapi belum generalisasi dengan baik ke data *test*.
 + Nilai RMSE *train* menurun selama pelatihan, menunjukkan bahwa model belajar dan meningkatkan akurasinya.
-+ Nilai RMSE *test* menurun pada awalnya, tetapi kemudian meningkat setelah epoch 30
++ Nilai RMSE test menurun pada awalnya, tetapi kemudian meningkat setelah epoch 30. Hal ini menunjukkan bahwa model mulai overfitting setelah epoch 30.
+
+Kesimpulan:
+
++ Model belum optimal, karena nilai RMSE test masih tinggi.
++ Model ada indikasi mengalami overfitting.
+
+Teknik Perbaikan:
+
++ Menggunakan teknik regularisasi untuk mencegah *overfitting*.
++ Mencoba model yang berbeda dengan arsitektur atau *hyperparameter* yang berbeda.
 
 ## 10. Kesimpulan 
 
-Proyek ini berhasil mengembangkan sebuah sistem rekomendasi yang dapat memberikan pengalaman pengguna yang lebih baik dalam mencari buku di e-perpustakaan. 
+Proyek ini berhasil mengembangkan model rekomendasi sistem menggunakan dua pendekatan yaitu *content-based filtering* dan *collaborative filtering* yang mampu memberikan rekomendasi buku dengan tingkat akurasi yang tinggi.
 
-Dengan menerapkan pendekatan *Content-Based Filtering* dan *Collaborative Filtering*, sistem dapat memberikan rekomendasi buku yang relevan berdasarkan preferensi pengguna.
+Hasil evaluasi menunjukkan bahwa metode *content-based filtering* bekerja dengan sangat bagus yang mana ditandai dengan seluruh metrik evaluasi yang bernilai 1.0. Namun, pendekatan *collaborative filtering* masih perlu dilakukan penyesuaian karena terdapat indikasi *overfitting*
 
-Melalui penggunaan metrik evaluasi yang relevan seperti *Precission*, *Recall*, *F1-Score*, dan *Root Mean Square Error* (RMSE), keberhasilan sistem akan dapat diukur dalam mencapai tujuan yang telah ditetapkan. 
+Manfaat bagi e-perpustakaan:
 
-Evaluasi terhadap pendekatan *Content-Based Filtering* menggunakan metrik *Precission*, *Recall*, *F1-Score*, sedangkan pendekatan *Collaborative Filtering* dievaluasi menggunakan metrik *RMSE*.
++ Dengan menganalisis judul buku, penulis buku, dan *rating* buku, e-perpustakaan dapat menyesuaikan rekomendasi buku mereka untuk memenuhi kebutuhan pengguna dan mengikuti perkembangan tren.
++ Dalam hal meningkatkan konversi pengguna menjadi anggota e-perpustakaan *premium*, sistem rekomendasi dapat memainkan peran penting dengan menyediakan rekomendasi yang menarik dan memberikan nilai tambah kepada pengguna.
++ Dengan menganalisis data secara efektif, akan didapatkan pelajaran berharga tentang pengguna dan menggunakan informasi ini untuk meningkatkan kualitas rekomendasi buku yang diberikan.
++ Berhasil melakukan analisis data pengguna untuk memahami perilaku, preferensi, dan kebutuhan pengguna dalam konteks rekomendasi buku.
++ Dengan memberikan rekomendasi buku yang relevan dan menarik, proyek ini berpotensi meningkatkan retensi pengguna pada platform e-perpustakaan.
 
-Dengan memberikan rekomendasi kursus yang relevan dan menarik, proyek ini berpotensi meningkatkan retensi pengguna pada e-perpustakaan. 
+Manfaat bagi anggota perpustakaan:
 
-Rekomendasi yang disesuaikan dengan preferensi pengguna akan membantu pengguna dalam menemukan buku yang paling sesuai dengan kebutuhan dan minat mereka.
++ Rekomendasi yang disesuaikan dengan preferensi pengguna akan membantu pengguna dalam menemukan pilihan buku yang paling sesuai dengan kebutuhan dan minat mereka.
 
-Selain itu, sistem rekomendasi ini juga dapat memberikan manfaat bagi e-perpustakaan dalam mengoptimalkan penyediaan buku yang relevan. 
+Langkah Tindak Lanjut:
 
-Dalam hal meningkatkan konversi pengguna menjadi anggota e-perpustakaan premium, sistem rekomendasi dapat memainkan peran penting dengan menyediakan rekomendasi yang menarik dan memberikan nilai tambah kepada pengguna. 
+Implementasi model: Model sistem rekomendasi yang telah dikembangkan dapat diimplementasikan pada e-perpustakaan untuk membantu merekomendasikan buku bagi anggota perpustakaan.
 
-Dengan memperhitungkan preferensi pengguna, sistem dapat memberikan rekomendasi buku yang relevan dengan minat dan kebutuhan mereka.
+Peningkatan data dan pemeliharaan model: e-perpustakaan dapat terus memperkaya data yang digunakan dalam model dan mempertahankan model dengan melakukan pemeliharaan dan pembaruan secara berkala.
 
-Selain itu, proyek ini juga berhasil melakukan analisis data pengguna untuk memahami perilaku, preferensi, dan kebutuhan pengguna dalam konteks rekomendasi kursus. 
+Evaluasi dan peningkatan: e-perpustakaan dapat terus mengevaluasi kinerja model dan melakukan perbaikan atau pengembangan lebih lanjut untuk meningkatkan keakuratan dan efektivitas sistem rekomendasi seperti penanganan *overfitting* pada model
 
-Dengan menganalisis data secara efektif, akan didapatkan pelajaran berharga tentang pengguna dan menggunakan informasi ini untuk meningkatkan kualitas rekomendasi buku yang diberikan.
+Dengan mengambil langkah-langkah tindak lanjut ini, e-perpustakaan dapat memanfaatkan model sistem rekomendasi ini untuk meningkatkan pelayanan anggota perpustakaan dalam hal mendukung minat baca secara online dengan fitur rekomendasi buku yang dipersonalisasi.
 
-Secara keseluruhan, proyek ini berhasil mengimplementasikan sistem rekomendasi yang dapat meningkatkan pengalaman pengguna, retensi pengguna, konversi pengguna, dan pemahaman tentang pengguna dalam konteks rekomendasi buku di e-perpustakaan. 
-
-Dengan menggunakan metrik evaluasi yang relevan, keberhasilan mencapai tujuan yang telah ditetapkan dan memberikan manfaat yang signifikan bagi pengguna dan e-perpustakaan dapat diukur.
+Secara keseluruhan, proyek ini berhasil mengimplementasikan sistem rekomendasi yang dapat meningkatkan pengalaman pengguna, retensi pengguna, konversi pengguna, dan pemahaman tentang pengguna dalam konteks rekomendasi buku di e-perpustakaan. Dengan menggunakan metrik evaluasi yang relevan, keberhasilan mencapai tujuan yang telah ditetapkan dan memberikan manfaat yang signifikan bagi pengguna dan e-perpustakaan dapat diukur.
 
 ## References
 

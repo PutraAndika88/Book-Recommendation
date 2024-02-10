@@ -1,4 +1,4 @@
-![image](https://github.com/PutraAndika88/Book-Recommendation/assets/133973000/48f9df3e-0006-467f-893e-80802de02d38)![image](https://github.com/PutraAndika88/Book-Recommendation/assets/133973000/0c5e1310-ffe5-459b-8784-e4b69de6df2c)# **Proyek Kedua | Aplikasi E-Perpustakaan: Penggunaan *Book Recommendation System* Dengan Metode *Content-Based Filtering* dan *Collaborative Filtering***
+# **Proyek Kedua | Aplikasi E-Perpustakaan: Penggunaan *Book Recommendation System* Dengan Metode *Content-Based Filtering* dan *Collaborative Filtering***
 
 ###### Oleh : Putra Andika Pradana
 
